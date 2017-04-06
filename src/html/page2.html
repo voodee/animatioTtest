@@ -1,0 +1,15 @@
+{#
+Nunjucks Templating!
+Homepage: https://mozilla.github.io/nunjucks/
+Docs: https://mozilla.github.io/nunjucks/api.html
+#}
+
+{% extends 'layouts/application.html' %}
+
+{% block content %}
+<div class="js-cube-box">
+    {% for i in range(1, 500) -%}
+    <p class="cube cube--red"></p>
+    {%- endfor %}
+</div>
+{% endblock %}
