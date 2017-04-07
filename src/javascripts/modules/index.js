@@ -11,21 +11,3 @@ for (var i = 0; i < moduleElements.length; i++) {
   const Module = require(`./${name}`).default
   new Module(el)
 }
-
-/*
-  Usage:
-  ======
-
-  html
-  ----
-  <button data-module="disappear">disappear!</button>
-
-  js
-  --
-  // modules/disappear.js
-  export default class Disappear {
-    constructor(el) {
-      el.style.display = none
-    }
-  }
-*/

@@ -10,6 +10,10 @@
     {% block head %}{% endblock %}
   </head>
   <body>
+    <div>
+      <p style="font-size: 5rem; color: #aaa; float: left; width: 50%">FPS: <span id="fps" style="color: #333"></span></p>
+      <p style="font-size: 5rem; color: #aaa; float: left; width: 50%">Counter: <span id="counter" style="color: #333"></span></p>
+    </div>
     {% block content %}{% endblock %}
     {% block javascript %}
       <script src="javascripts/app.js"></script>

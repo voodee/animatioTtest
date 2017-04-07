@@ -1,24 +1,38 @@
-import $ from 'jquery'
+import 'modules'
+//
+//
+// if ($('.js-cube-box').length) {
+//
+// 	$('.js-cube-box').ready(() => {
+//
+//
+// 	});
+// }
 
-$('.js-cube-box').ready(() => {
 
-	const delay = 4000;
-	
-	let start = performance.now();
 
-	requestAnimationFrame(function measure(time) {
-		let timePassed = time - start;
+window.delay = seconds => {
+	const start = performance.now();
+	while ( performance.now() < start + seconds * 1000 ) {}
+};
 
-		if (timePassed > delay) start = performance.now();
-		timePassed = time - start;
-		
-		let translate = timePassed / delay * 10;
-		
-		if (translate > 5) {
-			translate = 5 - (translate % 5)
-		}
-		$('.cube').css('transform', `translate(0, ${translate}rem)`);
 
-		requestAnimationFrame(measure);
-	})
+
+let fps = 0;
+requestAnimationFrame(function measure() {
+	++fps;
+	requestAnimationFrame(measure)
 });
+
+let counter = 0;
+setInterval(() => {
+	++counter;
+}, 1);
+
+setInterval(() => {
+	document.getElementById('fps').innerHTML = fps;
+	fps = 0;
+	
+	document.getElementById('counter').innerHTML = counter;
+	counter = 0;
+}, 1000);
